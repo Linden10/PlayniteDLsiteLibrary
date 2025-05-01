@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="DLsiteLibrary.DLsiteLibrarySettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dLsiteLibrary="clr-namespace:DLsiteLibrary"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="600"
+             d:DataContext="{d:DesignInstance Type=dLsiteLibrary:DLsiteLibrarySettingsViewModel}">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <Button Content="{DynamicResource LOCDLsiteLibrary_Settings_LoginLabel}" HorizontalAlignment="Left"
+                    Command="{Binding  LoginCommand}" />
+            <TextBlock Margin="10 0 0 0" VerticalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                        <Setter Property="Text" Value="{DynamicResource LOC_Login_NotLoggedIn}"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding AuthStatus}"
+                                         Value="{x:Static dLsiteLibrary:AuthStatus.Ok}">
+                                <Setter Property="Text" Value="{DynamicResource LOC_Login_LoggedIn}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding AuthStatus}"
+                                         Value="{x:Static dLsiteLibrary:AuthStatus.Failed}">
+                                <Setter Property="Text" Value="{DynamicResource LOC_Login_Error}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+            <TextBlock Text="Page Language:" Margin="0, 0, 5, 0" />
+            <ComboBox ItemsSource="{Binding Settings.AvailableLanguages}"
+                      SelectedValue="{Binding Settings.PageLanguage}" />
+        </StackPanel>
+
+        <CheckBox Content="{DynamicResource LOCDLsiteLibrary_Settings_Illustrators}" Margin="0, 5"
+                  IsChecked="{Binding Settings.IncludeIllustrators}" />
+        <CheckBox Content="{DynamicResource LOCDLsiteLibrary_Settings_ScenarioWriters}" Margin="0, 0, 0, 5"
+                  IsChecked="{Binding Settings.IncludeScenarioWriters}" />
+        <CheckBox Content="{DynamicResource LOCDLsiteLibrary_Settings_MusicCreators}" Margin="0, 0, 0, 5"
+                  IsChecked="{Binding Settings.IncludeMusicCreators}" />
+        <CheckBox Content="{DynamicResource LOCDLsiteLibrary_Settings_VoiceActors}" Margin="0, 0, 0, 5"
+                  IsChecked="{Binding Settings.IncludeVoiceActors}" />
+
+        <CheckBox Content="{DynamicResource LOCDLsiteLibrary_Settings_ProductFormat}" Margin="0, 10, 0, 5"
+                  IsChecked="{Binding Settings.IncludeProductFormat}" />
+        <CheckBox Content="{DynamicResource LOCDLsiteLibrary_Settings_FileFormat}" Margin="0, 0, 0, 5"
+                  IsChecked="{Binding Settings.IncludeFileFormat}" />
+    </StackPanel>
+</UserControl>

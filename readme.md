@@ -1,0 +1,1 @@
+Does not support DLsite Nest. Uses the same options as [DLsiteMetadata](https://github.com/Mysterken/DLsiteMetadata) except the search ones

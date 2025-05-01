@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="LOCDLsiteLibrary_Settings_LoginLabel">Log in</sys:String>
+    <sys:String x:Key="LOC_Login_LoggedIn">Authenticated</sys:String>
+    <sys:String x:Key="LOC_Login_NotLoggedIn">Requires authentication</sys:String>
+    <sys:String x:Key="LOC_Login_Error">Authentication failed</sys:String>
+    <sys:String x:Key="LOCDLsiteLibrary_Settings_Illustrators">Include Illustrators as Developers</sys:String>
+    <sys:String x:Key="LOCDLsiteLibrary_Settings_ScenarioWriters">Include Scenario Writers as Developers</sys:String>
+    <sys:String x:Key="LOCDLsiteLibrary_Settings_MusicCreators">Include Music Creators as Developers</sys:String>
+    <sys:String x:Key="LOCDLsiteLibrary_Settings_VoiceActors">Include Voice Actors as Developers</sys:String>
+    <sys:String x:Key="LOCDLsiteLibrary_Settings_ProductFormat">Include Product Format as Features</sys:String>
+    <sys:String x:Key="LOCDLsiteLibrary_Settings_FileFormat">Include File Format as Features</sys:String>
+</ResourceDictionary>
