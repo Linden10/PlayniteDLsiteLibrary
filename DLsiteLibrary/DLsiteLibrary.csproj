@@ -52,7 +52,7 @@
     <Compile Include="..\DLsiteMetadata\source\DLsiteScrapperResult.cs">
       <Link>DLsiteScrapperResult.cs</Link>
     </Compile>
-    <Compile Include="..\DLsiteMetadata\source\SupportedLanguages.cs">
+    <Compile Include="..\DLsiteMetadata\source\Enums\SupportedLanguages.cs">
       <Link>SupportedLanguages.cs</Link>
     </Compile>
     <Compile Include="DLsiteLibrary.cs" />
