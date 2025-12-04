@@ -1,0 +1,49 @@
+name: Build Solution
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Initialize submodules
+      run: |
+        git submodule update --init --recursive
+        git submodule foreach --recursive 'git fetch origin' || true
+    
+    - name: Verify submodule
+      shell: pwsh
+      run: |
+        if (Test-Path DLsiteMetadata\source\) {
+          dir DLsiteMetadata\source\
+        } else {
+          echo "Submodule not found"
+        }
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    
+    - name: Restore NuGet packages
+      run: nuget restore PlayniteDLsiteLibrary.sln
+    
+    - name: Build solution
+      run: msbuild PlayniteDLsiteLibrary.sln /p:Configuration=Release /p:Platform="Any CPU"
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: build-output
+        path: |
+          DLsiteLibrary/bin/
+          DLsiteMetadata/bin/
