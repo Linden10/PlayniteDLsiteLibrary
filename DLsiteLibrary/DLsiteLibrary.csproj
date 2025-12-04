@@ -46,6 +46,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\DLsiteMetadata\source\DLsiteScrapper.cs">
+      <Link>DLsiteScrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\DLsiteMetadata\source\DLsiteScrapperResult.cs">
+      <Link>DLsiteScrapperResult.cs</Link>
+    </Compile>
+    <Compile Include="..\DLsiteMetadata\source\Enums\SupportedLanguages.cs">
+      <Link>SupportedLanguages.cs</Link>
+    </Compile>
+    <Compile Include="..\DLsiteMetadata\source\Exceptions\ProductUnavailableException.cs">
+      <Link>ProductUnavailableException.cs</Link>
+    </Compile>
     <Compile Include="DLsiteLibrary.cs" />
     <Compile Include="DLsiteLibrarySettings.cs" />
     <Compile Include="DLsiteLibrarySettingsView.xaml.cs">
@@ -85,12 +97,7 @@
     <PackageReference Include="PlayniteSDK" Version="6.11.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DLsiteMetadata\source\DLsiteMetadata.csproj">
-      <Project>{A54423D1-8E7A-4339-B0D5-24E7CEFE469B}</Project>
-      <Name>DLsiteMetadata</Name>
-    </ProjectReference>
+    <PackageReference Include="HtmlAgilityPack" Version="1.12.0" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
